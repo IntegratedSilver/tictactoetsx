@@ -1,7 +1,5 @@
-// App.tsx
 import React, { useState } from "react";
 import Board from "./components/Board"
-
 
 export default function App() {
   const [history, setHistory] = useState<Array<string | null>[]>([Array(9).fill(null)]);
@@ -18,6 +16,11 @@ export default function App() {
   function jumpTo(nextMove: number) {
     setCurrentMove(nextMove);
   }
+
+  const resetGame = () => {
+    setHistory([Array(9).fill(null)]);
+    setCurrentMove(0);
+  };
 
   const moves = history.map((squares, move) => {
     const description = move > 0 ? `Go to move #${move}` : "Go to game start";
@@ -36,6 +39,7 @@ export default function App() {
       <div className="game-info">
         <ol>{moves}</ol>
       </div>
+      <button className="reset-button" onClick={resetGame}>Reset Game</button>
     </div>
   );
 }

@@ -1,14 +1,13 @@
-
-
-// Define the props interface for the Square component
 interface SquareProps {
   value: string | null;
   onSquareClick: () => void;
 }
 
 const Square = ({ value, onSquareClick }: SquareProps) => {
+  const squareClass = value === "X" ? "square x" : value === "O" ? "square o" : "square";
+
   return (
-    <button className="square" onClick={onSquareClick}>
+    <button className={squareClass} onClick={onSquareClick}>
       {value}
     </button>
   );

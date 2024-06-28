@@ -1,7 +1,5 @@
-
 import Square from "./Square";
 
-// Define the props interface for the Board component
 interface BoardProps {
   xIsNext: boolean;
   squares: Array<string | null>;
